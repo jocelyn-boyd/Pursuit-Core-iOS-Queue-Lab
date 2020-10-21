@@ -13,15 +13,15 @@ func smallestElement<T: Comparable>(in q: Queue<T>) -> T? {
     // compare currentNode with storedNode, if currentNode is smalller storeNode, storedNode will become currentNode
     // currentNode = currentNode.dequeue
     
-    var queue = q
-    var currentElement = queue.dequeue()
+    var queueOne = q
+    var currentElement = queueOne.dequeue()
     var smallestElement = currentElement
 
     while currentElement != nil {
         if currentElement! < smallestElement! {
             smallestElement = currentElement
         }
-        currentElement = queue.dequeue()
+        currentElement = queueOne.dequeue()
     }
     return smallestElement
 }
@@ -29,7 +29,16 @@ func smallestElement<T: Comparable>(in q: Queue<T>) -> T? {
 //2. Find the sum of a queue of Ints
 
 func sum(of q: Queue<Int>) -> Int {
-    return 0
+    var queueTwo = q
+    var currentElement = queueTwo.dequeue()
+    var sum = 0
+    
+    while currentElement != nil {
+        sum += currentElement ?? 0
+        currentElement = queueTwo.dequeue()
+    }
+    
+    return sum
 }
 
 //3. Find out whether or not a queue is in sorted order from smallest to biggest
