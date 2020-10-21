@@ -48,7 +48,27 @@ False example   (Back) 4 - 19 - 1 - 20 (Front)
 False example   (Back) 4 - 19 - 134 - 200 (Front)
 */
 
+
+// [5, 18, 13, 17 ]
+
 func isSorted<T: Comparable>(q: Queue<T>) -> Bool {
+    // make a copy
+    var queueThree = q
+    // getting a value from the head
+    var currentElement = queueThree.dequeue() // 5
+    var previousElement = currentElement // 5
+    
+    // use a while loop to compare nodes
+    // if the previous element is smaller than the next element
+    // return true
+    // dequeue the next element
+    while currentElement != nil {
+        if previousElement! > currentElement! {
+            return false
+        }
+        previousElement = currentElement // 5
+        currentElement = queueThree.dequeue() // 18
+    }
     return true
 }
 
